@@ -9,7 +9,7 @@ const Nav = () => {
           {' '}
           <svg
             width='200'
-            height='80'
+            height='50'
             viewBox='0 0 280 118'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'

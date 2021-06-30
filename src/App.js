@@ -1,19 +1,41 @@
+import React, { useState, useEffect } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
+import QuoteIcon1 from './QuoteIcon1'
+import QuoteIcon2 from './QuoteIcon2'
+
+import Footer from './Footer'
 import Nav from './Nav'
+import Quote from './Quote'
 function App() {
+  const BASE_URL = 'http://staging.quotable.io/'
+
+  const [quote, setQuote] = useState([])
+  const randomQuote = async () => {
+    try {
+      const response = await fetch(BASE_URL + 'random')
+      const quote = await response.json()
+      setQuote(quote)
+      console.log(quote)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => {
+    randomQuote()
+  }, [])
   return (
-    <Container fluid className='pl-0 pr-0 vh-100'>
+    <Container fluid className='pl-0 pr-0 h-100'>
       <Nav />
-      <Container className='align-items-center d-flex h-100'>
-        <Row className='justify-content-center'>
+      <h1 className='text-center mt-5'>Random Quotes</h1>
+      <Container
+        className='align-items-center d-flex'
+        style={{ marginTop: '8rem' }}
+      >
+        <Row className='justify-content-center w-100'>
           <Col md={8}>
-            <div className='rounded p-5 shadow bg-white'>
-              <p>
-                New Yorker–born and raised. Currently living in the Hague, the
-                Netherlands after stints in Paris and Amsterdam. Lover of
-                travel, adventure, nature, city, dresses, and cats.
-              </p>
-            </div>
+            <QuoteIcon1 />
+            <Quote quote={quote} />
+            <QuoteIcon2 />
             <div className='d-flex justify-content-center'>
               <Button
                 variant='primary'
@@ -26,6 +48,7 @@ function App() {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </Container>
   )
 }
