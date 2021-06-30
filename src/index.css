@@ -22,3 +22,12 @@ code {
   font-size: 30px;
   text-shadow: 4px 4px 4px #aaa;
 }
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
