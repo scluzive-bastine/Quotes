@@ -7,7 +7,7 @@ import Footer from './Footer'
 import Nav from './Nav'
 import Quote from './Quote'
 function App() {
-  const BASE_URL = 'http://staging.quotable.io/'
+  const BASE_URL = 'https://api.quotable.io/'
 
   const [quote, setQuote] = useState([])
   const [isLoading, setisLoading] = useState(true)
