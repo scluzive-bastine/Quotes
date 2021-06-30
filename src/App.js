@@ -12,6 +12,7 @@ function App() {
   const [quote, setQuote] = useState([])
   const [isLoading, setisLoading] = useState(true)
   const randomQuote = async () => {
+    setisLoading(true)
     try {
       const response = await fetch(BASE_URL + 'random')
       const quote = await response.json()
@@ -23,7 +24,6 @@ function App() {
     }
   }
   useEffect(() => {
-    setisLoading(true)
     randomQuote()
   }, [])
   if (isLoading) {

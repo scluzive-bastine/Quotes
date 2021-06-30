@@ -30,4 +30,20 @@ code {
   background-color: red;
   color: white;
   text-align: center;
+  margin-top: 5rem;
+}
+
+.quote-icon svg {
+  width: 74px;
+  height: 71px;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 25px !important;
+  }
+  .quote-icon svg {
+    width: 50px !important;
+    height: 49px !important;
+  }
 }
