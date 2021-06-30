@@ -45,10 +45,7 @@ function App() {
     <Container fluid className='pl-0 pr-0 h-100'>
       <Nav />
       <h1 className='text-center mt-5'>Random Quotes</h1>
-      <Container
-        className='align-items-center d-flex justify-content-center w-100'
-        style={{ marginTop: '8rem' }}
-      >
+      <Container className='align-items-center d-flex justify-content-center w-100'>
         <Row className='justify-content-center w-100'>
           <Col md={8}>
             <QuoteIcon1 />
