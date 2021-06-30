@@ -10,25 +10,43 @@ function App() {
   const BASE_URL = 'http://staging.quotable.io/'
 
   const [quote, setQuote] = useState([])
+  const [isLoading, setisLoading] = useState(true)
   const randomQuote = async () => {
     try {
       const response = await fetch(BASE_URL + 'random')
       const quote = await response.json()
       setQuote(quote)
-      console.log(quote)
+      setisLoading(false)
     } catch (error) {
+      setisLoading(false)
       console.log(error)
     }
   }
   useEffect(() => {
+    setisLoading(true)
     randomQuote()
   }, [])
+  if (isLoading) {
+    return (
+      <Container fluid className='pl-0 pr-0 h-100'>
+        <Nav />
+        <h1 className='text-center mt-5'>Random Quotes</h1>
+        <Container
+          className='align-items-center d-flex justify-content-center w-100'
+          style={{ marginTop: '8rem' }}
+        >
+          <h1 className='text-center'>Loading...</h1>
+        </Container>
+        <Footer />
+      </Container>
+    )
+  }
   return (
     <Container fluid className='pl-0 pr-0 h-100'>
       <Nav />
       <h1 className='text-center mt-5'>Random Quotes</h1>
       <Container
-        className='align-items-center d-flex'
+        className='align-items-center d-flex justify-content-center w-100'
         style={{ marginTop: '8rem' }}
       >
         <Row className='justify-content-center w-100'>
@@ -41,6 +59,7 @@ function App() {
                 variant='primary'
                 className='mt-4'
                 style={{ backgroundColor: '#282E67', borderColor: '#282E67' }}
+                onClick={() => randomQuote()}
               >
                 New Quote
               </Button>

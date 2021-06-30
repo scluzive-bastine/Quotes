@@ -10,7 +10,15 @@ const Footer = () => {
       >
         <div className='container-fluid'>
           <h6>
-            Created by <span className='font-weight-bold'>{developer}</span>{' '}
+            Created by{' '}
+            <a
+              target='_blank'
+              rel='noreferrer'
+              href='https://github.com/scluzive-bastine'
+              className='font-weight-bold text-decoration-none text-black'
+            >
+              {developer}
+            </a>{' '}
           </h6>
         </div>
       </footer>
